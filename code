@@ -1,17 +1,15 @@
 Problem Statement: 
 Let’s put ourselves in the shoes of a childcare provider.
 As childcare providers, we have an essential role in children’s lives by helping them learn and grow. You help children get the nourishment and energy they need to learn and grow by providing healthy meals. 
-
 Also, keep in mind that preschoolers who eat a variety of healthy foods and play actively several times every day are less likely to be overweight or obese.
-
 In this assignment, you will try to calculate a child's nutritions, using Python. This is a compulsory individual assignment wherein you will write Python code to take input from the user,  set various conditions, calculate BMI and calorie consumption, and submit the code.
 
 Hints:
 Create a child nutrition calculator based on the following tasks & conditions:
 The calculator should be able to store the details of the child such as the name, age, gender, height and weight.
 Calculate the BMI of the child using the standard BMI formula.
-Display the minimum daily calorie requirement based on age. Use the below criteria to display the same:
 
+Display the minimum daily calorie requirement based on age. Use the below criteria to display the same:
 Age b/w 0-2 years: 800 calories
 Age b/w 2-4 years: 1400 calories
 Age b/w 4-8 years: 1800 calories
