@@ -1,0 +1,124 @@
+Problem Statement: 
+Let’s put ourselves in the shoes of a childcare provider.
+As childcare providers, we have an essential role in children’s lives by helping them learn and grow. You help children get the nourishment and energy they need to learn and grow by providing healthy meals. 
+
+Also, keep in mind that preschoolers who eat a variety of healthy foods and play actively several times every day are less likely to be overweight or obese.
+
+In this assignment, you will try to calculate a child's nutritions, using Python. This is a compulsory individual assignment wherein you will write Python code to take input from the user,  set various conditions, calculate BMI and calorie consumption, and submit the code.
+
+Hints:
+Create a child nutrition calculator based on the following tasks & conditions:
+The calculator should be able to store the details of the child such as the name, age, gender, height and weight.
+Calculate the BMI of the child using the standard BMI formula.
+Display the minimum daily calorie requirement based on age. Use the below criteria to display the same:
+
+Age b/w 0-2 years: 800 calories
+Age b/w 2-4 years: 1400 calories
+Age b/w 4-8 years: 1800 calories
+Take as input what that child has eaten throughout the day and in what quantities.
+
+Calculate the daily calorie consumption based on the following criteria:
+Milk: 100 cal/ 100g
+Egg: 155 cal/ 100g
+Rice: 130 cal/ 100g
+Lentils: 113 cal/ 100g
+Vegetable: 85 cal/100g
+Meat: 143 cal/ 100g
+Next, compare the daily consumption with the recommended value and print if the child is undernourished or not.
+
+
+
+
+Code Starts from Here(Written in Python):
+
+# CHILD NUTRITION CALCULATOR.
+class nutrition:
+  # This function will store the details about the child.
+  def __init__(self,name,age,gender,height,weight):
+    self.name = name 
+    self.age = age 
+    self.gender = gender 
+    self.height = height 
+    self.weight = weight 
+
+  # This function will calculate BMI and thell the condion of the child
+  def BMI(self):
+    BMI = self.weight/(self.height * self.height)
+    BMI_round = round(BMI,2)
+    print("1). The BMI of the child is: ",BMI_round)
+    print("2). The Condition of the child on the basis is BMI is given below.")
+    # This section will tell BMI Category
+    if(BMI < 16):
+      print("\t Severely Underweight")
+    elif(BMI >= 16 and BMI < 18.5):
+      print("\t Underweight")
+    elif(BMI >= 18.5 and BMI < 25):
+      print("\t Healthy")
+    elif(BMI >= 25 and BMI < 30):
+      print("\t Overweight")
+    else:
+      print("\t Obese")
+  
+  # This function will tell how much calorie is required by the child.
+  def calorie_requirement(self):
+    if(self.age >= 0 and self.age < 2):
+      print("3). Calories Required by your child: 800 calories")
+    elif(self.age >= 2 and self.age < 4):
+      print("3). Calories Required by your child: 1400 calories")
+    elif(self.age >= 4 and self.age < 8):
+      print("3). Calories Required by your child: 1800 calories")
+
+  # This function will ask the user about what there child have eaten and accordingly it will tell that wheather the child is undernourished or not.
+  def calorie_consumption(self,milk,egg,rice,lentils,vegetables,meat):
+    milk_cal = 1 * milk
+    egg_cal = 0.66 * egg
+    rice_cal = 0.76 * rice
+    lentils_cal = 0.88 * lentils
+    veg_cal = 1.17 * vegetables
+    meat_cal = 0.69 * meat
+
+    # Total Calories consumed by the child
+    total_calories = milk_cal + egg_cal + rice_cal + lentils_cal + veg_cal + meat_cal
+    print("Total calories taken by the child: ",total_calories)
+
+    # Checking wheather the child is undernourished or not
+    if(self.age >= 0 and self.age < 2):
+      if(total_calories < 800):
+        print("4). Child is Undernourished")
+      else:
+        print("4). Child is not Undernourished")
+    elif(self.age >= 2 and self.age < 4):
+      if(total_calories < 1400):
+        print("4). Child is Undernourished")
+      else:
+        print("4). Child is not Undernourished")
+    elif(self.age >= 4 and self.age < 8):
+      if(total_calories < 1800):
+        print("4). Child is Undernourished")
+      else:
+        print("4). Child is not Undernourished")
+
+    
+
+# Information of the child is being taken along with the food he/she has eaten.
+name = input("Enter the name of the child: ")
+age = int(input("Enter the age of the child: "))
+gender = input("Enter the gender: ")
+height = float(input("Enter the height [in metres]: "))
+weight = int(input("Enter the weight [in Kgs]: "))
+
+info1 = nutrition(name,age,gender,height,weight)
+print("\n")
+
+print("Tell about what your child has eated till now and in what quantity.")
+milk = int(input("grams of milk drunk by the child: "))
+eggs = int(input("grams of eggs eaten by the child: "))
+rice = int(input("grams of rice eaten by the child: "))
+lentils = int(input("grams of lentils eaten by the child: "))
+vegetables = int(input("grams of vegetables eaten by the child: "))
+meat = int(input("grams of meat eaten by the child: "))
+
+print("\n")
+info1.BMI()
+info1.calorie_requirement()
+info1.calorie_consumption(milk,eggs,rice,lentils,vegetables,meat)
